@@ -1,0 +1,221 @@
+.containe{
+	background-color: #501646;
+	height: 800px;
+}
+#top{
+	height: 60px;
+}
+#top span{
+	color: #f2ffff;
+	font: 22px/60px "微软雅黑";
+	font-weight: bold;
+	margin-left: 10px;
+}
+#top ul{
+	float: right;
+	margin-top: 20px;
+	margin-right: 30px;
+}
+#top li{
+	float: left;
+	font: 10px '微软雅黑';
+	color: #e0dee2;
+	margin-left: 15px;
+}
+#top li a{
+	color: #e0dee2;
+}
+#center{
+	background-color: white;
+	margin-left: 10px;
+	width: 1500px;
+	height: 710px;
+	border: 1px solid;
+	border-radius: 5px;
+}
+#home{
+	float: left;
+	width: 1230px;
+	height: 695px;
+	background-color: #bfa;
+	margin-left: 40px;
+	margin-top: 10px;
+	border-radius: 5px;
+}
+/*文字标题*/
+#home > .inner{
+	text-align: center;
+	margin-top: 20px;
+}
+#home > .inner > span{
+	position: relative;
+	font: 30px "微软雅黑";
+	/*animation: move 1s infinite alternate-reverse;*/
+}
+@keyframes move{
+	from{
+		top: 0;
+	}
+	to{
+		top: 8px;
+	}
+}
+/*文字标题*/
+#carousel-example-generic{
+	margin-top: 50px;
+}
+#home h1{
+	margin: 0px auto;
+	font: 40px "微软雅黑";
+	color: white;
+	text-align: center;
+	text-shadow: black 4px 4px 20px;
+}
+#home img{
+	width: 1230px;
+	height: 500px;
+}
+#home p{
+	text-align: center;
+	color: #b5bac0;
+	font: 12px "楷体";
+	margin-top: 65px;
+}
+#wrap{
+	float: left;
+	width: 150px;
+	height: 700px;
+	background-color: #2cabd8;
+	border-radius: 5px;
+	margin-left: 5px ;
+	margin-top: 5px;
+}
+#wrap > div{
+	text-align: center;
+	height: 70px;
+	color: white;
+	font: 15px/70px "微软雅黑";
+	font-weight: bold;
+}
+#wrap > div:first-child{
+	background-color: #5f9fa1;
+}
+#wrap > div:hover{
+	background-color: #5f9fa1;
+}
+#play{
+	position: absolute;
+	display: none;
+	left: 227px;
+	top: 66px;
+	float: left;
+	width: 1065px;
+	height: 220px;
+}
+#play table,#studio table,#employee table,#user table,#schedule table{
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+#play th,#play td,#studio th,#studio td,#employee th,#employee td,#user th,#user td,#schedule th,#schedule td{
+	display: inline-block;
+	width:65px;
+	font:12px/40px '微软雅黑';
+	text-align :center;
+}
+#play th:nth-child(1),#play th:nth-child(2),#play th:nth-child(3),#play th:nth-child(4),#play td:nth-child(1),#play td:nth-child(2),#play td:nth-child(3),#play td:nth-child(4){
+	display: inline-block;
+	width: 65px;
+}
+#play th:nth-child(5),#play td:nth-child(5){
+	display: inline-block;
+	width: 100px;
+}
+#play th:nth-child(6),#play td:nth-child(6){
+	display: inline-block;
+	width: 200px;
+}
+#play th:last-child,#play td:last-child{
+	display: inline-block;
+	width: 180px;
+}
+#play > h1,#studio > h1,#employee > h1,#user h1,#schedule h1{
+	text-align: center;
+	height: 40px;
+	font: 20px/40px "微软雅黑";
+}
+#play > .inner,#studio > .inner,#employee > .inner,#user .inner,#schedule .inner{
+	padding: 30px 30px;
+	border-left: 2px solid red;
+	border-right: 1px dotted;
+	border-top: 1px dotted;
+	border-bottom: 1px dotted;
+	border-radius: 5px;
+}
+#employee,#user{
+	position: absolute;
+	display: none;
+	left: 227px;
+	top: 66px;
+	float: left;
+	width: 856px;
+	height: 220px;
+}
+#schedule{
+	position: absolute;
+	display: none;
+	left: 227px;
+	top: 66px;
+	float: left;
+	width: 800px;
+	height: 220px;
+}
+#schedule th:nth-child(1),#schedule th:nth-child(2),#schedule th:nth-child(3),#schedule td:nth-child(1),#schedule td:nth-child(2),#schedule td:nth-child(3){
+	display: inline-block;
+	width: 80px;
+}
+#schedule th:nth-child(5),#schedule td:nth-child(5){
+	display: inline-block;
+	width: 100px;
+}
+#schedule th:nth-child(4),#schedule td:nth-child(4){
+	display: inline-block;
+	width: 170px;
+}
+#schedule th:nth-child(6),#schedule td:nth-child(6){
+	display: inline-block;
+	width: 200px;
+}
+#recipient-name2{
+	border: none;
+}
+/*演出厅样式*/
+#studio{
+	position: absolute;
+	display: none;
+	left: 227px;
+	top: 66px;
+	float: left;
+	width: 1000px;
+	height: 220px;
+}
+#studio th:first-child,#studio td:first-child,
+#studio th:nth-child(3),#studio td:nth-child(3),
+#studio th:nth-child(4),#studio td:nth-child(4),
+#studio th:nth-child(5),#studio td:nth-child(5),
+#studio th:nth-child(6),#studio td:nth-child(6)
+{
+	display: inline-block;
+	width: 100px;
+}
+#studio th:nth-child(2),#studio td:nth-child(2){
+	display: inline-block;
+	width: 100px;
+}
+#studio th:nth-child(5),#studio td:nth-child(5){
+	display: inline-block;
+	width: 150px;
+}
+#studio th:last-child,#studio td:last-child{
+	 display: inline-block;
+	 width: 200px;
+ }

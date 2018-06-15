@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ttms.dao.SaleMapper" >
+  <resultMap id="BaseResultMap" type="com.ttms.pojo.Sale" >
+    <id column="sale_ID" property="saleId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="sale_time" property="saleTime" jdbcType="TIMESTAMP" />
+    <result column="sale_payment" property="salePayment" jdbcType="INTEGER" />
+    <result column="sale_type" property="saleType" jdbcType="TINYINT" />
+    <result column="sale_status" property="saleStatus" jdbcType="TINYINT" />
+    <result column="sale_content" property="saleContent" jdbcType="VARCHAR" />
+    <result column="sale_playName" property="salePlayname" jdbcType="VARCHAR" />
+    <result column="play_startTime" property="playStarttime" jdbcType="TIMESTAMP" />
+    <result column="play_studioName" property="playStudioname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    sale_ID, user_id, sale_time, sale_payment, sale_type, sale_status, sale_content, 
+    sale_playName, play_startTime, play_studioName
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ttms.pojo.SaleExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sale
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sale
+    where sale_ID = #{saleId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sale
+    where sale_ID = #{saleId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ttms.pojo.SaleExample" >
+    delete from sale
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ttms.pojo.Sale" >
+    insert into sale (sale_ID, user_id, sale_time, 
+      sale_payment, sale_type, sale_status, 
+      sale_content, sale_playName, play_startTime, 
+      play_studioName)
+    values (#{saleId,jdbcType=BIGINT}, #{userId,jdbcType=INTEGER}, #{saleTime,jdbcType=TIMESTAMP}, 
+      #{salePayment,jdbcType=INTEGER}, #{saleType,jdbcType=TINYINT}, #{saleStatus,jdbcType=TINYINT}, 
+      #{saleContent,jdbcType=VARCHAR}, #{salePlayname,jdbcType=VARCHAR}, #{playStarttime,jdbcType=TIMESTAMP}, 
+      #{playStudioname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ttms.pojo.Sale" >
+    insert into sale
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="saleId != null" >
+        sale_ID,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="saleTime != null" >
+        sale_time,
+      </if>
+      <if test="salePayment != null" >
+        sale_payment,
+      </if>
+      <if test="saleType != null" >
+        sale_type,
+      </if>
+      <if test="saleStatus != null" >
+        sale_status,
+      </if>
+      <if test="saleContent != null" >
+        sale_content,
+      </if>
+      <if test="salePlayname != null" >
+        sale_playName,
+      </if>
+      <if test="playStarttime != null" >
+        play_startTime,
+      </if>
+      <if test="playStudioname != null" >
+        play_studioName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="saleId != null" >
+        #{saleId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="saleTime != null" >
+        #{saleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="salePayment != null" >
+        #{salePayment,jdbcType=INTEGER},
+      </if>
+      <if test="saleType != null" >
+        #{saleType,jdbcType=TINYINT},
+      </if>
+      <if test="saleStatus != null" >
+        #{saleStatus,jdbcType=TINYINT},
+      </if>
+      <if test="saleContent != null" >
+        #{saleContent,jdbcType=VARCHAR},
+      </if>
+      <if test="salePlayname != null" >
+        #{salePlayname,jdbcType=VARCHAR},
+      </if>
+      <if test="playStarttime != null" >
+        #{playStarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="playStudioname != null" >
+        #{playStudioname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ttms.pojo.SaleExample" resultType="java.lang.Integer" >
+    select count(*) from sale
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sale
+    <set >
+      <if test="record.saleId != null" >
+        sale_ID = #{record.saleId,jdbcType=BIGINT},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.saleTime != null" >
+        sale_time = #{record.saleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.salePayment != null" >
+        sale_payment = #{record.salePayment,jdbcType=INTEGER},
+      </if>
+      <if test="record.saleType != null" >
+        sale_type = #{record.saleType,jdbcType=TINYINT},
+      </if>
+      <if test="record.saleStatus != null" >
+        sale_status = #{record.saleStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.saleContent != null" >
+        sale_content = #{record.saleContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salePlayname != null" >
+        sale_playName = #{record.salePlayname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.playStarttime != null" >
+        play_startTime = #{record.playStarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.playStudioname != null" >
+        play_studioName = #{record.playStudioname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sale
+    set sale_ID = #{record.saleId,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      sale_time = #{record.saleTime,jdbcType=TIMESTAMP},
+      sale_payment = #{record.salePayment,jdbcType=INTEGER},
+      sale_type = #{record.saleType,jdbcType=TINYINT},
+      sale_status = #{record.saleStatus,jdbcType=TINYINT},
+      sale_content = #{record.saleContent,jdbcType=VARCHAR},
+      sale_playName = #{record.salePlayname,jdbcType=VARCHAR},
+      play_startTime = #{record.playStarttime,jdbcType=TIMESTAMP},
+      play_studioName = #{record.playStudioname,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ttms.pojo.Sale" >
+    update sale
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="saleTime != null" >
+        sale_time = #{saleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="salePayment != null" >
+        sale_payment = #{salePayment,jdbcType=INTEGER},
+      </if>
+      <if test="saleType != null" >
+        sale_type = #{saleType,jdbcType=TINYINT},
+      </if>
+      <if test="saleStatus != null" >
+        sale_status = #{saleStatus,jdbcType=TINYINT},
+      </if>
+      <if test="saleContent != null" >
+        sale_content = #{saleContent,jdbcType=VARCHAR},
+      </if>
+      <if test="salePlayname != null" >
+        sale_playName = #{salePlayname,jdbcType=VARCHAR},
+      </if>
+      <if test="playStarttime != null" >
+        play_startTime = #{playStarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="playStudioname != null" >
+        play_studioName = #{playStudioname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where sale_ID = #{saleId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ttms.pojo.Sale" >
+    update sale
+    set user_id = #{userId,jdbcType=INTEGER},
+      sale_time = #{saleTime,jdbcType=TIMESTAMP},
+      sale_payment = #{salePayment,jdbcType=INTEGER},
+      sale_type = #{saleType,jdbcType=TINYINT},
+      sale_status = #{saleStatus,jdbcType=TINYINT},
+      sale_content = #{saleContent,jdbcType=VARCHAR},
+      sale_playName = #{salePlayname,jdbcType=VARCHAR},
+      play_startTime = #{playStarttime,jdbcType=TIMESTAMP},
+      play_studioName = #{playStudioname,jdbcType=VARCHAR}
+    where sale_ID = #{saleId,jdbcType=BIGINT}
+  </update>
+</mapper>

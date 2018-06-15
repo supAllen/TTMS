@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>首页</title>
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/layui.css" >
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/jq.css">
+        <link rel="stylesheet" href="css/u.css">
+        <!-- ./CSS -->
+        <!-- jquery -->
+        <script src="js/jquery-1.10.2.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <!-- ./jquery -->
+    </head>
+    
+    
+    <body>
+        <div class="b">
+        <img src="img/logo.png">
+        <div class="b3">
+            <form class="form-inline">
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputAmount"></label>
+    <div class="input-group">
+      <div class="input-group-addon"><img src="img/sou.png" alt=""> </div>
+      <input type="text" class="form-control" id="exampleInputAmount" placeholder="search....">
+      
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary"> 搜索 </button>
+</form>
+        </div>
+        <div class="b1">
+            <select name="" id="">
+            <option value="">西安</option>
+            <option value="">北京</option>
+            <option value="">上海</option>
+            <option value="">乌鲁木齐</option>
+            <option value="">广州</option>
+            <option value="">重庆</option> 
+        </select>
+        </div>
+        <div class="b4">
+            <button type="text"><a href="#">登陆</a></button>
+            <button type="text"><a href="#">注册</a></button>
+        </div>
+    </div>
+
+   <div class="u1">
+        <ul>
+<li><a href="1.html">首页</a></li>
+<li><a href="2.html">电影</a></li>
+<li><a href="4.html">影院</a></li>
+<li><a href="5.html">榜单</a></li>
+<li><a href="">热点</a></li>
+</ul>
+            
+</div>
+        
+    <div class="panel-heading" style="background-color: #424242; color: #eeeeee; ">
+            <h2>即将播出</h2>
+        </div><br/>
+        <div class="row featurette">
+            <div class="col-md-7" ></colgroup>
+                <h3><mark>导演：</mark>&nbsp;&nbsp;查尔斯&#183;马丁<br><br>
+                <mark>编剧：</mark>&nbsp;&nbsp;凯文&#183;伯恩哈特<br><br>
+                <mark>国家地区：</mark>&nbsp;&nbsp;中国<br><br>
+                <mark>制作公司：</mark>&nbsp;&nbsp;上海熙颐文化传媒有限公司<br><br>
+                
+                <mark >剧情：</mark><br><br><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前SAS特工，声名显赫的安保专家丹尼·斯特拉顿（奥兰多·布鲁姆饰）遭遇<br><br>了人生中最大的劫难：藏品被盗，女友离去，身败名裂。沉寂已久的他决定东山再起，一<br><br>次看似简单的任务背后，却藏着更为惊人的阴谋。面对警方的误会，队友的背叛，爱人<br><br>的失踪，反派的追杀，他该何去何从……
+            <br><br>一次意外，让外籍安保专家丹尼（奥兰多·布鲁姆饰）一手创立的S.M.A.R.T.极致安保小<br><br>组陷入困境，女友莫凌（熊黛林饰）也随之离他而去。丹尼与小组成员叮当（吴磊饰）<br><br>、马赫（任达华饰）、婕婕（昆凌饰）、只能一边做些“小本生意”，一边等待东山再起之<br><br>日。终于，他们意外获得了一份有望挽回团队声誉的任务——护送价值连城的中国国宝出<br><br>境展览，不料却被卷入了一场精心策划的阴谋……看似完美的夺宝计划能否顺利进行？“极<br><br>致小组”能否赢回失去的信誉？成败在此一举，一场惊心动魄的极致追击展开了……</p></h5>
+        </div>
+        <div class="col-md-5">
+            <img class="featurette-image img-responsive center-block" src="img/img-movie/Dunkirk.jpg" alt="蜘蛛侠">
+        </div>
+        <div><center><a href="6.html"> <button type="button" class="btn btn-primary" >点击购买</button></a></center></td></div>
+    </div>   
+<!-- FOOTER -->
+<div id="footer">
+<p>&copy; 2019 &nbsp;yousef<br />
+    <a href="http://www.xiyou.edu.cn">西安邮电大学计算机学院</a> &middot;
+</p>
+</div>
+<!-- ./footer -->
+</div>
+<script>
+$(document).ready(function() {
+$("#content div").hide(); // Initially hide all content
+$("#tabs li:first").attr("id","current"); // Activate first tab
+$("#content div:first").fadeIn(); // Show first tab content
+$('#tabs a').click(function(e) {
+e.preventDefault();
+$("#content div").hide(); //Hide all content
+$("#tabs li").attr("id",""); //Reset id's
+$(this).parent().attr("id","current"); // Activate this
+$('#' + $(this).attr('title')).fadeIn(); // Show content for current tab
+});
+})();
+</script>
+<script src="js/jquery1.12.4.min.js"></script>
+<script src="js/layui.all.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jq22.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	http://www.springframework.org/schema/task
+	http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- 开启注解 -->
+    <!--<context:annotation-config/>-->
+    <context:component-scan base-package="com.ttms.service"/>
+
+    <!-- 缺省的异步任务线程池 -->
+    <task:annotation-driven executor="asyncExecutor" />
+    <task:executor id="asyncExecutor" pool-size="1-9" queue-capacity="100" />
+
+    <!-- 处理票的线程池 -->
+    <task:executor id="ticketExecutor" pool-size="1-9" queue-capacity="5" keep-alive="5" rejection-policy="DISCARD_OLDEST"/>
+    <!-- 处理座位的线程池 -->
+    <task:executor id="seatExecutor" pool-size="1-9" queue-capacity="5" keep-alive="5" rejection-policy="DISCARD_OLDEST"/>
+
+</beans>

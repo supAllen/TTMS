@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../preLogin/css/reset.css">
+    <link rel="stylesheet" href="../preLogin/css/play-info.css">
+</head>
+<body>
+    <div class="container">
+        <div id="wrap-top">
+            <div class="left">
+                <img id="play-info-img" src="" alt="">
+            </div>
+            <div class="right">
+                <div class="top">
+                    <p id="pname" class="p1"></p>
+                </div>
+                <div class="center">
+                    <p id="ptype"></p>
+                    <p id="plang"></p>
+                </div>
+                <div class="bottom">
+                    <a id="phref" href="#">特惠购票</a>
+                </div>
+            </div>
+        </div>
+        <div id="wrap-bottom">
+            <div class="title">
+                <h1>剧情简介</h1>
+            </div>
+            <div class="inner">
+                <p id="pcontent">
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="tab">
+        <table id="table-info">
+            <tr>
+                <th>放映时间</th>
+                <th>语言版本</th>
+                <th>放映厅</th>
+                <th>售价（元）</th>
+                <th>选座购票</th>
+            </tr>
+            <!--<tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="#">选座购票</a></td>
+            </tr>-->
+        </table>
+    </div>
+</body>
+<script src="../movie/js/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var pid = window.location.href.split("=")[1]
+        console.log(pid)
+        $.ajax({
+            type:"GET",
+            url:"/play/preInfo",
+            dataType: "json",
+            async: true,
+            data:{pid:pid},
+            success: function (data) {
+                console.log(data)
+                $("#play-info-img").attr("src",data.playImage)
+                $("#pname").html(data.playName)
+                $("#ptype").html(data.playTypeName)
+                $("#plang").html(data.playLangName+"/"+data.playLength)
+                $("#pcontent").html(data.playIntroduction)
+                var $sch = data.schedule;
+                var $stu = data.stuNames;
+                if($sch==""){
+                    alert("今日场次一放完")
+                }
+                var $tabs = $("#table-info")
+                for (var i = 0;i<$sch.length; i++){
+                    var $tr = $("<tr>").appendTo("#table-info")
+                    var time =  new Date($sch[i].schedTime)
+                    var t = "";
+                    if(time.getHours()<10){
+                        t += "0"+time.getHours()
+                    }else {
+                        t+=""+time.getHours();
+                    }
+                    t += ":"
+                    if(time.getMinutes()<10){
+                        t += "0"+time.getMinutes()
+                    }else {
+                        t+=""+time.getMinutes()
+                    }
+
+                    $("<td>").appendTo($tr).text(t)
+                    $("<td>").appendTo($tr).text(data.playLangName)
+                    $("<td>").appendTo($tr).text($stu[i].studioName)
+                    $("<td>").appendTo($tr).text(data.ticketPrice)
+                    $("<td><a href='6.html' style='display: inline-block;\n" +
+                        "    width: 80px;\n" +
+                        "    height: 30px;\n" +
+                        "    background-color: red;\n" +
+                        "    border-radius: 5px;\n" +
+                        "    text-decoration: none;\n" +
+                        "    font: 14px/30px \"微软雅黑\";\n" +
+                        "    color: white;'>选座购票</a></td>").appendTo($tr)
+                }
+            }
+        })
+    })
+</script>
+</html>

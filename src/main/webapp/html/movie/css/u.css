@@ -1,0 +1,133 @@
+ body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+        
+        .container {
+            background-color: #000000;
+        }
+        
+        .carousel-inner img {
+            width: 100%;
+            margin-top: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: 3px;
+            padding: 0;
+        }
+        
+        .nav {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
+        text-align: right;
+        }
+        
+        .row featurette,
+        h3,
+        p,
+        h5 {
+        color: #e0e0e0;
+        }
+        
+        #footer {
+            width: 100%;
+            margin: 0 auto;
+            padding: 33px 0;
+            background-color: #37474f;
+            color: #eeeeee;
+            font-size: 15px;
+            text-align: center;
+                }
+        
+        .panel-body {
+        margin: 0;
+        padding: 0;
+        background-color: #424242;
+        }
+        
+        .table img {
+        width: 233px;
+        height: 333px;
+        margin: 0;
+        padding: 0;
+        box-shadow: 3px -3px 10px 1px rgba(16, 16, 16, 0.57);
+        }
+        
+        .table p {
+        margin: 0;
+        padding: 0;
+        color: #616161;
+        font-size: 21px;
+        }
+        .b{
+        background:white;
+          }
+        .b1 
+        {   position: absolute;
+            top:10px;
+            right: 30px;
+
+        }
+       .b2
+       {position: absolute;
+        top: ;
+        right: 
+
+       }
+       .b3{
+        position: absolute;
+        top:40px;
+        left: 250px;
+
+       }
+       .b4{
+        position: absolute;
+        top:50px;
+        right: 30px;
+       }
+       .c{
+        height: 50px;
+        width: 100px;
+ }
+.u1 ul
+{
+list-style-type:none;
+width: 100%;
+margin:0;
+padding:0;
+overflow:hidden;
+}
+.u1 li
+{
+    float: left;
+    width: 20%;
+}
+.u1 a:link,.ul a:visited
+{
+display:block;
+width:100%;
+font-weight:bold;
+color:black;
+background-color:#bebebe;
+text-align:center;
+padding:20px;
+text-decoration:none;
+text-transform:uppercase;
+}
+.u1 a:hover,.u1 a:active
+{
+background-color:#000000;
+}
+ .t1{
+    border:1;
+    width:90%;
+    height: 200px;
+    font-size: 15px;
+    margin-left: 50px;
+    }
+ .t2{
+    text-align: center;
+ }
+}

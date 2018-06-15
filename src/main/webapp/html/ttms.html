@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>剧院票务管理系统</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/ttms.css"/>
+
+    <script src="/js/jquery-1.10.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/jquery.validate.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/js/home-page.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/ttms-play.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/ttms-studio.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="/js/ttms-schedule.js" type="text/javascript" charset="UTF-8"></script>
+</head>
+<body>
+<div class="containe">
+    <div id="top">
+        <ul>
+            <li>Welcome Admin</li>
+            <li><a href="#">注册</a></li>
+            <li><a href="#">退出</a></li>
+        </ul>
+        <span>剧院票务管理系统后台</span>
+    </div>
+    <div id="center">
+        <div id="wrap">
+            <div class="home">首页</div>
+            <div class="user">用户管理</div>
+            <div class="studio">演出厅管理</div>
+            <div class="play">剧目管理</div>
+            <div class="schedule">演出计划管理</div>
+            <div class="data_dict">数据字典管理</div>
+        </div>
+        <!--首页-->
+        <div id="home">
+            <div class="inner">
+                <span>欢</span>
+                <span>迎</span>
+                <span>来</span>
+                <span>到</span>
+                <span>奥</span>
+                <span>斯</span>
+                <span>卡</span>
+                <span>影</span>
+                <span>院</span>
+                <span>！</span>
+            </div>
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="/img/1.jpg">
+                    </div>
+                    <div class="item">
+                        <img src="/img/2.jpg">
+                    </div>
+                    <div class="item">
+                        <img src="/img/3.jpg">
+                    </div>
+                    <div class="item">
+                        <img src="/img/4.jpg">
+                    </div>
+                    <div class="item">
+                        <img src="/img/5.jpg">
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <p>Copyright@2017-2018</p>
+        </div>
+        <!--首页-->
+        <!--剧目管理-->
+        <div id="play">
+            <h1>剧目管理</h1>
+            <div class="inner">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                        data-whatever="@mdo">添加
+                </button>
+                <!--<button id="btn-dropoff" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false"
+                        autocomplete="off">下架
+                </button>-->
+                <div class="tab">
+                    <table id="table" class="table table-hover">
+                        <tr>
+                            <th>剧目ID</th>
+                            <th>剧目类型</th>
+                            <th>剧目语言</th>
+                            <th>剧目名称</th>
+                            <th>剧目简介</th>
+                            <th>剧目海报</th>
+                            <th>剧目时长</th>
+                            <th>剧目票价</th>
+                            <th>剧目状态</th>
+                            <th>剧目票房</th>
+                            <th>操作</th>
+                        </tr>
+                    </table>
+                </div>
+                <!--剧目修改-->
+                <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabe1">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="exampleModalLabe2">Update1 message</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form id="form">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">剧目类型:</label>
+                                        <select id="select-list3">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">剧目语言:</label>
+                                        <select id="select-list4">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">剧目名称:</label>
+                                        <input name="playName" type="text" class="form-control" id="play-name" required
+                                               placeholder="请输入剧目名称，8字符以内！"
+                                               pattern="/^[\u4e00-\u9fa5]{2,8}$/">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">剧目简介:</label>
+                                        <input name="playIntroduction" type="text" class="form-control"
+                                               id="play-instroduction" required minlength="4">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">剧目海报:</label>
+                                        <input name="file" type="file" class="form-control" id="play-image">
+                                        <input name="playImage" id="play-hiddlen" style="display: none">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">剧目时长:</label>
+                                        <input name="playLength" type="text" class="form-control" id="play-length"
+                                               required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">剧目票价:</label>
+                                        <input name="playTicketPrice" type="text" class="form-control" id="play-price"
+                                               required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">剧目状态:</label>
+                                        <input value="0" name="playStatus" type="text" class="form-control"
+                                               id="play-status" required minlength="1">
+                                    </div>
+                                    <div class="form-group" style="display: none">
+                                        <label for="recipient-name" class="control-label">剧目票房:</label>
+                                        <input name="playBookingOffice" type="text" class="form-control"
+                                               id="play-bookingoffice" value="0">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--剧目修改-->
+                <!--剧目添加-->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="exampleModalLabel1">剧目添加</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form id="my_form" enctype="multipart/form-data" action="/play/add" method="post">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">剧目类型:</label>
+                                        <select id="select-list1">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">剧目语言:</label>
+                                        <select id="select-list2">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">剧目名称:</label>
+                                        <input name="playName" type="text" class="form-control" id="recipient-name"
+                                               required placeholder="请输入剧目名称，8字符以内！"
+                                               pattern="/^[\u4e00-\u9fa5]{2,8}$/">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">剧目简介:</label>
+                                        <input name="playIntroduction" type="text" class="form-control"
+                                               id="recipient-name1" required minlength="4">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">剧目海报:</label>
+                                        <input name="file" type="file" class="form-control" id="recipient-name2">
+                                        <input name="playImage" id="input-hiddlen" style="display: none">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">剧目时长:</label>
+                                        <input name="playLength" type="text" class="form-control" id="recipient-name3"
+                                               required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">剧目票价:</label>
+                                        <input name="playTicketPrice" type="text" class="form-control"
+                                               id="recipient-name4" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">剧目状态:</label>
+                                        <input value="0" name="playStatus" type="text" class="form-control"
+                                               id="recipient-name5" required minlength="1">
+                                    </div>
+                                    <div class="form-group" style="display: none">
+                                        <label for="recipient-name" class="control-label">剧目票房:</label>
+                                        <input name="playBookingOffice" type="text" class="form-control"
+                                               id="recipient-name6" value="0">
+                                    </div>
+                                </form>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                    <button id="btn-submit" type="button" class="btn btn-primary">提交</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--剧目修改-->
+            </div>
+
+        </div>
+        <!--演出厅-->
+        <div id="studio">
+            <h1>演出厅管理</h1>
+            <div class="inner">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-1"
+                        data-whatever="@mdo">添加
+                </button>
+                <!--<button id="btn-dropoff3" type="button" class="btn btn-primary" data-toggle="button"
+                        aria-pressed="false" autocomplete="off">下架
+                </button>-->
+                <table id="table1" class="table table-hover">
+                    <tr>
+                        <th>演出厅ID</th>
+                        <th>演出厅名称</th>
+                        <th>行</th>
+                        <th>列</th>
+                        <th>演出厅简介</th>
+                        <th>演出厅状态</th>
+                        <th>操作</th>
+                    </tr>
+                </table>
+                <div class="modal fade" id="exampleModal-1" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="exampleModalLabel1-1">添加演出厅</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form id="my_form1" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">演出厅名称:</label>
+                                        <input name="studioName" class="form-control" id="recipient-name-1" required
+                                               minlength="1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">行:</label>
+                                        <input name="studioRowCount" class="form-control" id="recipient-name-2" required
+                                               minlength="1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">列:</label>
+                                        <input name="studioColCount" class="form-control" id="recipient-name-3" required
+                                               minlength="1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">演出厅简介:</label>
+                                        <input name="studioIntroduction" class="form-control" id="recipient-name-4"
+                                               required minlength="4">
+                                    </div>
+                                    <div class="form-group">
+                                        <!--<label for="recipient-name" class="control-label" >演出厅标记:</label>-->
+                                        <input name="studioFlag" style="display: none" value="0" class="form-control"
+                                               id="recipient-name-5">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button id="studio-submit-btn" type="button" class="btn btn-primary">提交</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--用户管理-->
+        <div id="user">
+            <h1>用户管理</h1>
+            <div class="inner">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#userModel"
+                        data-whatever="@mdo">添加
+                </button>
+                <!--<button id="btn-select3" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false"
+                        autocomplete="off">查询
+                </button>
+                <button id="btn-dropoff4" type="button" class="btn btn-primary" data-toggle="button"
+                        aria-pressed="false"
+                        autocomplete="off">下架
+                </button>-->
+                <table id="table3">
+                    <tr>
+                        <th>用户ID</th>
+                        <th>用户姓名</th>
+                        <th>用户密码</th>
+                        <th>用户电话</th>
+                        <th>用户性别</th>
+                        <th>用户介绍</th>
+                        <th>操作</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!--演出计划-->
+        <div id="schedule">
+            <h1>演出计划管理</h1>
+            <div class="inner">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#schModel"
+                        data-whatever="@mdo">添加
+                </button>
+                <!--<button id="btn-select5" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false"
+                        autocomplete="off">查询
+                </button>
+                <button id="btn-dropoff6" type="button" class="btn btn-primary" data-toggle="button"
+                        aria-pressed="false"
+                        autocomplete="off">下架
+                </button>-->
+                <table id="schtable" class="table table-hover">
+                    <tr>
+                        <th>演出计划ID</th>
+                        <th>演出厅ID</th>
+                        <th>剧目ID</th>
+                        <th>演出计划时间</th>
+                        <th>票价</th>
+                        <th>操作</th>
+                    </tr>
+                </table>
+                <div class="modal fade" id="schModel" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="studioModelAdd">添加演出计划</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form id="studio_form" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">演出厅:</label>
+                                        <select id="sch_select1">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">剧目:</label>
+                                        <select id="sch_select2">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">演出计划的时间:</label>
+                                        <input name="studioColCount" type="datetime-local" class="form-control"
+                                               id="sch_start_Time" required
+                                               minlength="1">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="schTicketPrice" class="form-control" id="sch_playTicketPrice"
+                                               required minlength="4">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button id="sch-submit-btn" type="button" class="btn btn-primary">提交</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 演出计划修改 -->
+                <div class="modal fade" id="sch_modify_Model" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="schModelmodify">修改演出计划</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form id="sch_modify_form" enctype="multipart/form-data">
+                                    <input id="sch_m_id" value="" style="display: none">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">演出厅:</label>
+                                        <input id="sch_ms1" disabled="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">剧目:</label>
+                                        <input id="sch_ms2" disabled="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">演出计划的时间:</label>
+                                        <input name="studioColCount" type="datetime-local" class="form-control"
+                                               id="sch_modify_start_Time" required
+                                               minlength="1">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="schTicketPrice" class="form-control" id="sch_modify_playTicketPrice"
+                                               required minlength="4">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button id="sch-modify-submit-btn" type="button" class="btn btn-primary">提交</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#myCarousel').carousel({
+            //自动4秒播放
+            interval : 2500,
+        })
+        var spanNodes = document.querySelectorAll("#home > .inner > span")
+        var colors = ["red","orange","yellow","green","blue","pink","red","orange","yellow","green","blue","pink"]
+        for(var i = 0; i < spanNodes.length; i++){
+            spanNodes[i].style.animation = "move .3s "+(i*50)+"ms linear infinite alternate"
+            spanNodes[i].style.color = colors[i];
+        }
+    })
+</script>
+</body>
+</html>

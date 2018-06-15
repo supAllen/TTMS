@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+		<meta charset="utf-8">
+		<link href="css/style.css" rel='stylesheet' type='text/css' />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+</head>
+<body>
+	 <!-----start-main---->
+	 <div class="main">
+		<div class="login-form">
+			<h1>Member Login</h1>
+					<div class="head">
+						<img src="images/user.png" alt=""/>
+					</div>
+				<form>
+						<input id="username" class="text" value="USERNAME" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'USERNAME';}" >
+						<input id="password" type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+						<div class="submit">
+							<input type="submit" onclick="myFunction()" value="LOGIN" >
+					</div>	
+					<p><a href="#">Forgot Password ?</a></p>
+				</form>
+			</div>
+			<!--//End-login-form-->
+		</div>
+
+<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+
+<script type="text/javascript">
+	function myFunction() {
+        // 正则判断是否合法后
+        $.ajax({
+            type: "GET",
+            url: "/root/check",
+            data: {username: $("#username").val(),
+                password:$("#password").val()},
+            async: true,
+            dataType: "json",
+            success: function (data) {
+                if(data.status != 200){
+                    alert("登陆失败，请重新登录")
+                    $("#username").val("");
+                    $("#password").val("");
+                }else {
+                    location.href = "../ttms.html";
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

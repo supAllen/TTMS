@@ -1,0 +1,52 @@
+body {
+   /* background-image: url(../img/music.jpg);*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.article {
+    width: 51%;
+    margin-top: 7%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 8.5%;
+    background-color: #f7f7f7;
+    border-radius: 15px;
+    text-align: center;
+   /* background-image: url(../img/smile.jpg);*/
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.title-bar {
+    width: 100%;
+    background: #424242;
+    color: #e0e0e0;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.title-bar h3 {
+    padding: 13px 0;
+}
+
+.input-group {
+    margin: 7% 15%;
+}
+
+.button {
+    width: 70%;
+    margin: 0 auto;
+    padding: 3% 0;
+}
+
+footer {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1% 0;
+    background-color: #424242;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 15px;
+}

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <meta charset="UTF-8">
+     <title>登陆</title>
+     <link rel="stylesheet" href="css/layui.css" >
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/jq.css">
+        <link rel="stylesheet" href="css/u.css">
+     <style type="text/css">
+          * {
+               margin: 0;
+               padding: 0;
+          }
+
+          .header {
+               width: 100%;
+               height: 60px;
+               /* border: 1px solid rgba(253, 241, 119, 0.5); */
+               background: #2f4f4f;
+          }
+
+          .wrap-content {
+               position: relative;
+               overflow: hidden;
+               width: 1200px;
+               margin: auto;
+          }
+
+          .wrap-content img {
+               width: 100%;
+          }
+
+          .wrap-login {
+               position: absolute;
+               left: 144px;
+               top: 12px;
+               width: 382px;
+               height: 564px;
+               background-color: #FFFFFF;
+               box-shadow: 0 0 5px rgba(100, 100, 100, .5);
+               border: 1px solid rgba(255, 255, 255, 1);
+          }
+
+          .wrap-login .login-header {
+               width: 100%;
+               height: 160px;
+               background-color: rgba(0, 0, 0, 1);
+               background: url("./img/logo.png");
+               background-repeat: no-repeat;
+               background-position: center;
+               background-size: cover;
+          }
+
+          .wrap-login #login-form {
+               width: 90%;
+               height: 368px;
+               margin: 16px auto;
+               /* border: 1px solid #f00; */
+          }
+
+          .wrap-login #login-form input {
+               display: block;
+               width: 98%;
+               height: 32px;
+               margin: 0 auto;
+               outline: none;
+               border: 1px solid rgba(0, 0, 0, 0.1);
+          }
+
+          #login-form .span {
+               display: block;
+               font-size: 10px;
+               color: #555;
+          }
+
+          #login-username,
+          #login-password {
+               width: 98%;
+               margin: 32px auto;
+               /* border: 1px solid #555; */
+          }
+
+          .button {
+               display: block;
+               width: 98%;
+               height: 36px;
+               margin: 16px auto;
+               outline: none;
+               font-size: 12px;
+               border: 1px solid rgba(0, 0, 0, 0.1);
+               cursor: pointer;
+               font-family: YouYuan;
+               font-weight: bold;
+               color: #555;
+               background-color: rgba(0, 0, 0, 0.1);
+          }
+
+          .button:hover {
+               background-color: #555;
+               color: #fff;
+               box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+          }
+
+          #login-vcode {
+               width: 97%;
+               margin: 36px auto;
+               /* border: 1px solid #f00; */
+               height: 36px;
+          }
+
+          #login-vcode #vcode_input {
+               display: inline-block;
+               width: 216px;
+               margin-bottom: 16px;
+               float: left;
+          }
+
+          #login-vcode span {
+               display: inline-block;
+               float: right;
+               width: 104px;
+               height: 32px;
+               border: 1px solid #333;
+               background-color: #555;
+               color: #FFF;
+               text-align: center;
+               font-size: 16px;
+               font-weight: bold;
+               line-height: 36px;
+               cursor: pointer;
+          }
+     </style>
+</head>
+
+<body>
+     <div class="header">
+     </div>
+     <div class="wrap-content">
+          <img src="img/cover.jpg" alt="">
+          <div class="wrap-login">
+               <div class="login-header">
+
+               </div>
+               <div id="login-form">
+                    <form action="">
+                         <div id="login-username">
+                              <!-- <span class="span">用户名/手机号</span> -->
+                              <input type="text" id="username" placeholder="请输入已注册的手机号">
+                         </div>
+
+                         <div id="login-password">
+                              <!-- <span class="span">密码</span> -->
+                              <input type="password" id="password" placeholder="请输入密码">
+                         </div>
+                         <div id="login-vcode">
+                              <input type="text" id="vcode_input" placeholder="请输入验证码">
+                              <span id="vcode" onclick="vcodeFn()"></span>
+                         </div>
+                         <div class="wrap-login-btn">
+                              <button class="button" id="login_btn" onclick="loginFn()">登陆</button>
+                         </div>
+                         <div class="wrap-register-btn">
+                              <button class="button" id="register_btn">注册</button>
+                         </div>
+                    </form>
+               </div>
+          </div>
+     </div>
+
+</body>
+<script type="text/javascript">
+     var vcodeSpan = document.querySelector("#vcode");
+     var userName = document.querySelector("#username");
+     var password = document.querySelector("#password");
+
+     function vcodeFn() {
+          var vCode = Math.floor(Math.random() * 9000 + 1000);
+          vcodeSpan.innerHTML = vCode;
+     }
+
+
+     function loginFn() {
+          /*判断用户名*/
+          if (userName.value == "admin") {
+               alert("用户名正确！");
+               /*判断密码*/
+               if (password.value == "admin") {
+
+                    alert("密码正确！");
+                    alert("登陆成功！");
+                    location.href = '1.html'
+
+               } else if (password.value == "") {
+
+                    alert("密码不能为空！");
+               } else {
+
+                    alert("密码有误！");
+               }
+          } else if (userName.value == "") {
+
+               alert("用户名不能为空！");
+          } else {
+
+               alert("用户名有误！");
+          }
+     }
+     vcodeFn();
+</script>
+<div id="footer">
+<p>&copy; 2019 &nbsp;yousef<br />
+    <a href="http://www.xiyou.edu.cn">西安邮电大学计算机学院</a> &middot;
+</p>
+</div>
+</html>
